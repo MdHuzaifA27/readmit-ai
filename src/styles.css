@@ -1,0 +1,122 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
+  --color-low: var(--low);
+  --color-low-soft: var(--low-soft);
+  --color-medium: var(--medium);
+  --color-medium-soft: var(--medium-soft);
+  --color-high: var(--high);
+  --color-high-soft: var(--high-soft);
+  --color-info-soft: var(--info-soft);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+}
+
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.982 0.004 250);
+  --foreground: oklch(0.22 0.04 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.04 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.04 260);
+  --primary: oklch(0.45 0.15 258);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.955 0.012 250);
+  --secondary-foreground: oklch(0.28 0.06 260);
+  --muted: oklch(0.96 0.008 250);
+  --muted-foreground: oklch(0.52 0.03 258);
+  --accent: oklch(0.94 0.03 250);
+  --accent-foreground: oklch(0.3 0.08 260);
+  --destructive: oklch(0.58 0.21 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.915 0.012 255);
+  --input: oklch(0.9 0.014 255);
+  --ring: oklch(0.55 0.14 258);
+  --navy: oklch(0.24 0.06 262);
+  --navy-foreground: oklch(0.96 0.01 250);
+  --low: oklch(0.6 0.13 160);
+  --low-soft: oklch(0.95 0.04 160);
+  --medium: oklch(0.72 0.15 70);
+  --medium-soft: oklch(0.96 0.05 80);
+  --high: oklch(0.58 0.2 25);
+  --high-soft: oklch(0.95 0.035 25);
+  --info-soft: oklch(0.95 0.03 250);
+  --chart-1: oklch(0.45 0.15 258);
+  --chart-2: oklch(0.65 0.11 220);
+  --chart-3: oklch(0.6 0.13 160);
+  --chart-4: oklch(0.72 0.15 70);
+  --chart-5: oklch(0.58 0.2 25);
+  --shadow-card: 0 1px 2px oklch(0.24 0.06 262 / 0.04), 0 4px 16px -6px oklch(0.24 0.06 262 / 0.08);
+  --gradient-hero: linear-gradient(135deg, oklch(0.24 0.06 262), oklch(0.36 0.12 258) 60%, oklch(0.45 0.13 230));
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@utility card-surface {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+@utility hero-surface {
+  background: var(--gradient-hero);
+  color: var(--color-navy-foreground);
+}
+@utility num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+@utility field {
+  width: 100%;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-input);
+  background: var(--color-card);
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  outline: none;
+  &:focus { border-color: var(--color-ring); box-shadow: 0 0 0 3px oklch(0.55 0.14 258 / 0.15); }
+}

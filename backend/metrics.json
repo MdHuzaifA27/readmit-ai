@@ -1,0 +1,115 @@
+{
+  "dataset": "UCI Diabetes 130-US hospitals for years 1999-2008",
+  "target": "<30-day readmission (readmitted == '<30')",
+  "n_samples": 101766,
+  "positive_count": 11357,
+  "positive_rate": 0.11159915885462728,
+  "features_used": [
+    "age",
+    "gender",
+    "race",
+    "admission_type_id",
+    "discharge_disposition_id",
+    "admission_source_id",
+    "time_in_hospital",
+    "num_lab_procedures",
+    "num_procedures",
+    "num_medications",
+    "number_outpatient",
+    "number_emergency",
+    "number_inpatient",
+    "number_diagnoses",
+    "max_glu_serum",
+    "A1Cresult",
+    "change",
+    "diabetesMed",
+    "insulin"
+  ],
+  "categorical_features": [
+    "age",
+    "gender",
+    "race",
+    "admission_type_id",
+    "discharge_disposition_id",
+    "admission_source_id",
+    "max_glu_serum",
+    "A1Cresult",
+    "change",
+    "diabetesMed",
+    "insulin"
+  ],
+  "numeric_features": [
+    "time_in_hospital",
+    "num_lab_procedures",
+    "num_procedures",
+    "num_medications",
+    "number_outpatient",
+    "number_emergency",
+    "number_inpatient",
+    "number_diagnoses"
+  ],
+  "threshold": 0.1,
+  "accuracy": 0.5911774921847864,
+  "precision": 0.1558118498417006,
+  "recall": 0.6406322640632264,
+  "f1": 0.2506593906321055,
+  "auc": 0.6605211771758817,
+  "confusion_matrix": [
+    [
+      10536,
+      7466
+    ],
+    [
+      773,
+      1378
+    ]
+  ],
+  "split": "80/20 patient-grouped hold-out; patient_nbr groups kept entirely within train or test",
+  "random_state": 42,
+  "selected_model": "Logistic Regression",
+  "selection_rationale": "Transparent feature contributions and probability output; Random Forest retained as a performance comparator.",
+  "risk_bands": {
+    "low": "< 8%",
+    "medium": "8% to <15%",
+    "high": ">= 15%"
+  },
+  "clinical_note": "Prototype/research model only; risk bands are not clinically validated thresholds.",
+  "comparison": [
+    {
+      "model": "Logistic Regression",
+      "accuracy": 0.5911774921847864,
+      "precision": 0.1558118498417006,
+      "recall": 0.6406322640632264,
+      "f1": 0.2506593906321055,
+      "auc": 0.6605211771758817,
+      "confusion_matrix": [
+        [
+          10536,
+          7466
+        ],
+        [
+          773,
+          1378
+        ]
+      ]
+    },
+    {
+      "model": "Random Forest",
+      "accuracy": 0.5424006351411701,
+      "precision": 0.15033132232222332,
+      "recall": 0.7066480706648071,
+      "f1": 0.2479204045017126,
+      "auc": 0.6658010543897932,
+      "confusion_matrix": [
+        [
+          9411,
+          8591
+        ],
+        [
+          631,
+          1520
+        ]
+      ]
+    }
+  ]
+}

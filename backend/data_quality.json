@@ -1,0 +1,108 @@
+{
+  "rows": 101766,
+  "columns": 50,
+  "target_distribution": {
+    "NO": 54864,
+    ">30": 35545,
+    "<30": 11357
+  },
+  "duplicates": 0,
+  "missing": [
+    {
+      "feature": "weight",
+      "missingRate": 96.86
+    },
+    {
+      "feature": "max_glu_serum",
+      "missingRate": 94.75
+    },
+    {
+      "feature": "A1Cresult",
+      "missingRate": 83.28
+    },
+    {
+      "feature": "medical_specialty",
+      "missingRate": 49.08
+    },
+    {
+      "feature": "payer_code",
+      "missingRate": 39.56
+    },
+    {
+      "feature": "race",
+      "missingRate": 2.23
+    },
+    {
+      "feature": "diag_3",
+      "missingRate": 1.4
+    },
+    {
+      "feature": "diag_2",
+      "missingRate": 0.35
+    },
+    {
+      "feature": "diag_1",
+      "missingRate": 0.02
+    },
+    {
+      "feature": "patient_nbr",
+      "missingRate": 0.0
+    },
+    {
+      "feature": "time_in_hospital",
+      "missingRate": 0.0
+    },
+    {
+      "feature": "admission_source_id",
+      "missingRate": 0.0
+    },
+    {
+      "feature": "num_lab_procedures",
+      "missingRate": 0.0
+    },
+    {
+      "feature": "encounter_id",
+      "missingRate": 0.0
+    },
+    {
+      "feature": "admission_type_id",
+      "missingRate": 0.0
+    }
+  ],
+  "exclusions": [
+    {
+      "feature": "encounter_id",
+      "why": "Identifier; no clinical signal and risks memorisation."
+    },
+    {
+      "feature": "patient_nbr",
+      "why": "Identifier used only for patient-grouped splitting, never as a predictor."
+    },
+    {
+      "feature": "weight",
+      "why": "96.9% missing; imputation would be unreliable."
+    },
+    {
+      "feature": "payer_code",
+      "why": "39.6% missing and administrative/proxy-like; excluded from the prototype."
+    },
+    {
+      "feature": "medical_specialty",
+      "why": "49.1% missing and high-cardinality; excluded from the compact prototype feature set."
+    },
+    {
+      "feature": "diag_1/diag_2/diag_3",
+      "why": "Raw ICD-9 strings are high-cardinality; diagnosis complexity is represented by number_diagnoses in this version."
+    }
+  ],
+  "retained_missingness": [
+    {
+      "feature": "A1Cresult",
+      "why": "Missingness represented as 'None' because whether the test was ordered may carry information."
+    },
+    {
+      "feature": "max_glu_serum",
+      "why": "Missingness represented as 'None' for the same reason."
+    }
+  ]
+}
